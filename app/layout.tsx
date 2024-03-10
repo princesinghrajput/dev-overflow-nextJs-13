@@ -5,6 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 // eslint-disable-next-line camelcase
 import { Inter, Space_Grotesk } from "next/font/google";
 
+import { ThemeProvider } from "@/context/ThemeProvider";
+
 import type { Metadata } from "next";
 
 import "./globals.css";
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
   description:
     "A community-driven platform for asking and answering questions about software development. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, game development, algorithms, data structures, and more.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/assets/images/site-logo.svg",
   },
 };
 
@@ -46,7 +48,7 @@ export default function RootLayout({
             },
           }}
         >
-          {children}
+          <ThemeProvider>{children}</ThemeProvider>
         </ClerkProvider>
       </body>
     </html>
